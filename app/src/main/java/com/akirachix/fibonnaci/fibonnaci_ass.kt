@@ -5,8 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.math.BigInteger
 
-class Fibonnaci_ass(var number:List<Int>):RecyclerView.Adapter<NumbersViewHolder>(){
+class Fibonnaci_ass(var number:List<BigInteger>):RecyclerView.Adapter<NumbersViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumbersViewHolder {
         val numberView=LayoutInflater.from(parent.context)
             .inflate(R.layout.fibbonaci_list,parent,false)

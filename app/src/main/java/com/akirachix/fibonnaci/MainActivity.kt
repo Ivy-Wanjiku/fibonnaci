@@ -5,8 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.akirachix.fibonnaci.databinding.ActivityMainBinding
+import java.math.BigInteger
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -15,14 +17,14 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val fiboNumber=fibonaciNums(100)
-        binding.rvNums.layoutManager=LinearLayoutManager(this)
+        binding.rvNums.layoutManager=GridLayoutManager(this, 2)
         val numAdapter=Fibonnaci_ass(fiboNumber)
         binding.rvNums.adapter=numAdapter
 
 
     }
-    fun fibonaciNums(n:Int):List<Int> {
-        val numbers= mutableListOf(0,1)
+    fun fibonaciNums(n:Int):List<BigInteger> {
+        val numbers= mutableListOf(BigInteger.ZERO,BigInteger.ONE)
         while (numbers.size < 100 ){
             numbers.add(numbers[numbers.lastIndex] +numbers[numbers.lastIndex -1])
         }
